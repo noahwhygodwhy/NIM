@@ -7,7 +7,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 
-enum pNum
+
+public enum pNum
 {
     P1,
     P2
@@ -38,7 +39,9 @@ public class Player extends Thread
     }
     public void run()
     {
-
+        //send name
+        //receive a message,
+        //something like either "waiting for second player", or "playing with " 
     }
     public pNum getPNum()
     {

@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.util.Date;
 
 
-public class Server
+public class NimServer
 {
 
     private static void badArgs()
@@ -19,25 +19,6 @@ public class Server
 
     public static void main(String[] args) throws IOException
     {
-        ArrayList<Integer> defaultPiles = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5));
-
-        Game ga = new Game(defaultPiles);
-        System.out.println(ga);
-        try
-        {
-            ga.takeFrom(3, 1, 3);
-        }
-        catch(MoveException e)
-        {
-            System.out.println("e");
-            System.out.println(e);
-        }
-        System.out.println(ga);
-
-
-        System.exit(0);
-
-
         if (args.length < 2) badArgs();
 
         String hostname = args[0];
@@ -93,15 +74,15 @@ public class Server
 
         while(true)
         {
-            /*Game g = new Game(defaultPiles);
+            Game game = new Game(defaultPiles);
             Socket socketUno = serversocket.accept();
-            Player p1 = new Player(socketUno, g, pNum.P1);
+            Player p1 = new Player(socketUno, game);
             players.add(p1);
             p1.start();
             Socket socketDos = serversocket.accept();
-            Player p2 = new Player(socketDos, g, pNum.P2);
+            Player p2 = new Player(socketDos, game);
             players.add(p2);
-            p2.start();*/
+            p2.start();
         }
         //serversocket.close();
         /*do i need this
